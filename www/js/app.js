@@ -1,3 +1,5 @@
+(function(){
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -5,21 +7,6 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('starter', ['ionic']);
 
-app.controller('ListCtrl', function ($scope){
-  // array
-  $scope.notes=[
-    {
-      // javascript object1
-      title:'First Note',
-      description: 'This is my first note.'
-    },
-    {
-      // javascript object2
-      title:'Second Note',
-      description: 'This is my second note.'
-    }
-  ];
-});
 
 // Shows in which state each view relies
 app.config(function($stateProvider, $urlRouterProvider)
@@ -29,12 +16,45 @@ app.config(function($stateProvider, $urlRouterProvider)
     templateUrl:'templates/list.html'
   });
   $stateProvider.state('edit', {
-    url:'/edit',
+    url:'/edit/:noteId',
     templateUrl:'templates/edit.html'
   });
 
   // If it doesnt match redirects to list
   $urlRouterProvider.otherwise('/list');
+});
+
+var notes=[
+  {
+    // javascript object1
+      id:'1',
+    title:'First Note',
+    description: 'This is my first note.'
+  },
+  {
+    // javascript object2
+      id:'2',
+    title:'Second Note',
+    description: 'This is my second note.'
+  }
+];
+
+function getNote(noteId){
+  for (var i=0; i< notes.length; i++){
+    if (notes[i].id === noteId){
+      return notes[i];
+    }
+  }
+  return undefined;
+}
+
+app.controller('ListCtrl', function ($scope){
+  // array
+  $scope.notes = notes;
+});
+
+app.controller('EditCtrl', function($scope, $state){
+  $scope.note = getNote($state.params.noteId);
 });
 
 app.run(function($ionicPlatform) {
@@ -53,4 +73,5 @@ app.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
-})
+});
+}());
