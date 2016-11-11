@@ -21,6 +21,22 @@ app.controller('ListCtrl', function ($scope){
   ];
 });
 
+// Shows in which state each view relies
+app.config(function($stateProvider, $urlRouterProvider)
+{
+  $stateProvider.state('list', {
+    url:'/list',
+    templateUrl:'templates/list.html'
+  });
+  $stateProvider.state('edit', {
+    url:'/edit',
+    templateUrl:'templates/edit.html'
+  });
+
+  // If it doesnt match redirects to list
+  $urlRouterProvider.otherwise('/list');
+});
+
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
