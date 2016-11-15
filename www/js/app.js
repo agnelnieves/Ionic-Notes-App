@@ -15,30 +15,24 @@ app.config(function($stateProvider, $urlRouterProvider)
     url:'/list',
     templateUrl:'templates/list.html'
   });
+  $stateProvider.state('add', {
+    url:'/add',
+    templateUrl:'templates/edit.html',
+    controller: 'AddCtrl'
+  });
   $stateProvider.state('edit', {
     url:'/edit/:noteId',
-    templateUrl:'templates/edit.html'
+    templateUrl:'templates/edit.html',
+    controller: 'EditCtrl'
   });
 
   // If it doesnt match redirects to list
   $urlRouterProvider.otherwise('/list');
 });
 
-var notes=[
-  {
-    // javascript object1
-      id:'1',
-    title:'First Note',
-    description: 'This is my first note.'
-  },
-  {
-    // javascript object2
-      id:'2',
-    title:'Second Note',
-    description: 'This is my second note.'
-  }
-];
+var notes=[];
 
+//getNOte function
 function getNote(noteId){
   for (var i=0; i< notes.length; i++){
     if (notes[i].id === noteId){
@@ -48,13 +42,47 @@ function getNote(noteId){
   return undefined;
 }
 
+//Update note function
+function updateNote(note){
+  for (var i=0; i< notes.length; i++){
+    if (notes[i].id === note.id){
+      notes[i] = note;
+      return;
+    }
+  }
+  return undefined;
+}
+
+function createNote(note){
+  notes.push(note);
+}
+
+// This controller shows the note objects
 app.controller('ListCtrl', function ($scope){
   // array
   $scope.notes = notes;
 });
 
+//This controller adds a new note
+app.controller('AddCtrl', function($scope, $state){
+  $scope.note = {
+    id: new Date().getTime().toString(),
+    title:'',
+    description: ''
+  };
+  $scope.save = function(){
+    createNote($scope.note);
+    $state.go('list');
+  };
+});
+
+//This controller edits a note
 app.controller('EditCtrl', function($scope, $state){
-  $scope.note = getNote($state.params.noteId);
+  $scope.note = angular.copy(getNote($state.params.noteId));
+  $scope.save = function(){
+    updateNote($scope.note);
+    $state.go('list');
+  };
 });
 
 app.run(function($ionicPlatform) {
