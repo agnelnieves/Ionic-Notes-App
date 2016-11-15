@@ -7,7 +7,6 @@
   // the 2nd parameter is an array of 'requires'
   var app = angular.module('myNotes', ['ionic', 'mynotes.notestore']);
 
-
   // Shows in which state each view relies
   app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('list', {
@@ -49,7 +48,7 @@
   });
 
   //This controller edits a note
-  app.controller('EditCtrl', function($scope, $state) {
+  app.controller('EditCtrl', function($scope, $state, NoteStore) {
     $scope.note = angular.copy(NoteStore.get($state.params.noteId));
     $scope.save = function() {
       NoteStore.update($scope.note);
