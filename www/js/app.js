@@ -32,6 +32,9 @@
   app.controller('ListCtrl', function($scope, NoteStore) {
     // array
     $scope.notes = NoteStore.list();
+    $scope.remove = function(noteId){
+      NoteStore.remove(noteId);
+    };
   });
 
   //This controller adds a new note

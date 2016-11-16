@@ -4,6 +4,9 @@
       color: white!important;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 5px;
   }
+  .input-label {
+    color: #11c1f3!important;
+}
 
   .item {
       border-color: rgba(221, 221, 221, 0.39);
@@ -25,8 +28,12 @@
   text-align: center;
 }
 
+.item-complex .item-content, .item-radio .item-content {
+    padding: 0px 7px 0px 4px!important;
+}
+
 .content-wp{
-  background-image: url("image");
+  background-color: ;
 }
 
 .white{
