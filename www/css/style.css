@@ -12,11 +12,8 @@
       border-color: rgba(221, 221, 221, 0.39);
       background-color: #fff;
       color: #444;
-      position: relative;
-      z-index: 2;
       display: block;
-      margin: -1px;
-      padding: 16px;
+
       /* border-width: 1px; */
       border-top-width: 2px;
       border-style: solid;
@@ -28,8 +25,9 @@
   text-align: center;
 }
 
-.item-complex .item-content, .item-radio .item-content {
-    padding: 0px 7px 0px 4px!important;
+.light-icon{
+  color: rgba(68, 68, 68, 0.34)!important;
+  font-size: 25px!important;
 }
 
 .content-wp{
