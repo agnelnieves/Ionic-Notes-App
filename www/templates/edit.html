@@ -1,5 +1,5 @@
 <ion-view view-title="Edit Note">
-  <ion-content>
+  <ion-content class="content-wp">
     <div class="list">
       <div class="item item-input item-floating-label">
         <span class="input-label">Note Title</span>
@@ -9,11 +9,11 @@
       <span class="input-label">Note Content</span>
       <textarea rows="5" placeholder="Write your note content here." ng-model="note.description"></textarea>
     </div>
-    </div>
-    <div class="padding">
-      <button class="button button-block button-positive" ng-click="save()">
-        Save
-      </button>
-    </div>
+  </div>
   </ion-content>
+  <div class="bar bar-footer bar-stable">
+    <button class="button-save" ng-click="save()">
+      Save
+    </button>
+</div>
 </ion-view>

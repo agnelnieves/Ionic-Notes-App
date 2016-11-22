@@ -1,13 +1,74 @@
 /* Empty. Add your own CSS if you like */
 .customNav{
-  background-color: #11c1f3!important;
+  background-color: #E91E63!important;
       color: white!important;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 5px;
+      padding-top: 10px!important;
   }
   .input-label {
-    color: #11c1f3!important;
+    color: #387ef5!important;
 }
 
+.no-margin{
+  margin-top: 0px!important;
+  margin-bottom: 0px!important;
+}
+
+button.button-save{
+  min-width: 100%!important;
+  background-color: #387ef5!important;
+  color: white;
+  border: 0px;
+}
+
+.button.button-re{
+  position: initial!important;
+  min-width: 100%!important;
+  background-color: #387ef5!important;
+  border: 0px;
+  color:white;
+  border-color: transparent;
+position: relative;
+display: inline-block;
+/* margin: 0; */
+padding: 1px 12px!important;
+min-height: 47px;
+border-width: 1px;
+border-style: solid;
+ border-radius:0px!important;
+vertical-align: top;
+text-align: center;
+text-overflow: ellipsis;
+font-size: 19px;
+line-height: 42px;
+cursor: pointer;
+}
+
+.button.button-new{
+  min-width: 100%!important;
+  background-color: #387ef5!important;
+  border: 0px;
+  color:white;
+  border-color: transparent;
+position: relative;
+display: inline-block;
+/* margin: 0; */
+padding: 1px 12px!important;
+min-height: 47px;
+border-width: 1px;
+border-style: solid;
+ border-radius: 0px!important;
+vertical-align: top;
+text-align: center;
+text-overflow: ellipsis;
+font-size: 19px;
+line-height: 42px;
+cursor: pointer;
+}
+
+div.bar.bar-footer{
+  padding: 0px!important;
+}
   .item {
       border-color: rgba(221, 221, 221, 0.39);
       background-color: #fff;
@@ -31,7 +92,8 @@
 }
 
 .content-wp{
-  background-color: ;
+  background-image:url(../img/pattern-2.jpg);
+  background-size: cover;
 }
 
 .white{
